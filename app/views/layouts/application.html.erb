@@ -6,22 +6,53 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <nav>
-    
-  </nav>
+    <div id="flex-content-container">
+      <div class="container">
+        
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-12 text-center">
+              <a class="blog-header-logo text-dark" href="#">Fulham Bed and Breakfast</a>
+            </div>
+          </div>
+        </header>
 
-  <% if notice.present? %>
-    <p class="alert alert-info"><%= notice %></p>
-  <% end %>
-  <% if alert.present? %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+        <div class="row justify-content-md-center">
+          <div class="nav-scroller py-1 mb-2 col-md-8">
+            <nav class="nav d-flex justify-content-between">
+              <a class="p-2 text-muted" href="#">Home</a>
+              <a class="p-2 text-muted" href="#">Rooms</a>
+              <a class="p-2 text-muted" href="#">Booking</a>
+              <a class="p-2 text-muted" href="#">Finding Us</a>
+              <a class="p-2 text-muted" href="#">Contact</a>
+              <% if user_signed_in? %>
+                <a class="p-2 text-muted" href='#' >Portal</a>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'p-2 text-muted' %>
+              <% else %>
+                <a class="p-2 text-muted" href=<%= new_user_session_path %>>Admin</a>
+              <% end %>
+            </nav>
+          </div>
+        </div>
 
-  <%= image_tag 'bandb.png' %>
+        <br/>
+        <% if notice.present? %>
+          <p class="alert alert-info"><%= notice %></p>
+        <% end %>
+        <% if alert.present? %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
+      
+        <%= yield %>
 
+      </div>
 
-  <body>
-    <%= yield %>
+      <footer class="blog-footer">
+        <p>&copy; Fulham Bed and Breakfast 2018</p>
+      </footer>
+
+    </div>
   </body>
 </html>
