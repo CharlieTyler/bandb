@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type => 'image/png' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
     <div id="flex-content-container">
@@ -13,8 +14,10 @@
         
         <header class="blog-header py-3">
           <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-12 text-center">
-              <a class="blog-header-logo text-dark" href="#">Fulham Bed and Breakfast</a>
+            <div class="col-12 text-center">              
+              <%= link_to root_path do %>
+                <%= image_tag 'bandb.png', height: 'auto', width: '800', class: 'd-inline-block align-items-center', alt: 'Bed and Breakfast' %>
+              <% end %>
             </div>
           </div>
         </header>
@@ -22,17 +25,11 @@
         <div class="row justify-content-md-center">
           <div class="nav-scroller py-1 mb-2 col-md-8">
             <nav class="nav d-flex justify-content-between">
-              <a class="p-2 text-muted" href="#">Home</a>
-              <a class="p-2 text-muted" href="#">Rooms</a>
-              <a class="p-2 text-muted" href="#">Booking</a>
-              <a class="p-2 text-muted" href="#">Finding Us</a>
-              <a class="p-2 text-muted" href="#">Contact</a>
-              <% if user_signed_in? %>
-                <a class="p-2 text-muted" href='#' >Portal</a>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'p-2 text-muted' %>
-              <% else %>
-                <a class="p-2 text-muted" href=<%= new_user_session_path %>>Admin</a>
-              <% end %>
+              <%= link_to 'Home', root_path, class: 'p-2 text-muted' %>
+              <%= link_to 'About', '/pages/about', class: 'p-2 text-muted' %>
+              <%= link_to 'Availability', '/pages/availability', class: 'p-2 text-muted' %>
+              <%= link_to 'Find Us', '/pages/find-us', class: 'p-2 text-muted' %>              
+              <%= link_to 'Contact', '/pages/contact' , class: 'p-2 text-muted' %> 
             </nav>
           </div>
         </div>
@@ -50,7 +47,13 @@
       </div>
 
       <footer class="blog-footer">
-        <p>&copy; Fulham Bed and Breakfast 2018</p>
+        <% if user_signed_in? %>
+          <a class="" href='#' >Portal</a>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: '' %>
+        <% else %>
+          <%= link_to 'Admin', new_user_session_path, class: '' %>
+        <% end %>
+        <p>&copy; Fulham Bed and Breakfast <%= Date.today.year %></p>
       </footer>
 
     </div>
