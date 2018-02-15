@@ -62,6 +62,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_bot_rails'
+  gem 'pry'
 end
 
 gem 'will_paginate', '>= 3.1'
@@ -78,3 +79,5 @@ gem 'carrierwave-aws'
 gem 'stripe'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem 'simple_calendar', '~> 2.0'
+gem 'haml'

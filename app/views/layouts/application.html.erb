@@ -7,18 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type => 'image/png' %>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+
     <div id="flex-content-container">
       <div class="container">
-        
         <header class="blog-header py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-12 text-center">              
-              <%= link_to root_path do %>
-                <%= image_tag 'bandb.png', height: 'auto', width: '800', class: 'd-inline-block align-items-center', alt: 'Bed and Breakfast' %>
-              <% end %>
-            </div>
+          <div class="col-12 col-md-6 offset-md-3 text-center">              
+            <%= link_to root_path do %>
+              <%= image_tag 'bandb.png', class: 'img-fluid mx-auto d-block', alt: 'Bed and Breakfast' %>
+            <% end %>
           </div>
         </header>
 
@@ -27,7 +26,7 @@
             <nav class="nav d-flex justify-content-between">
               <%= link_to 'Home', root_path, class: 'p-2 text-muted' %>
               <%= link_to 'About', '/pages/about', class: 'p-2 text-muted' %>
-              <%= link_to 'Availability', '/pages/availability', class: 'p-2 text-muted' %>
+              <%= link_to 'Bookings', '/bookings', class: 'p-2 text-muted' %>
               <%= link_to 'Find Us', '/pages/find-us', class: 'p-2 text-muted' %>              
               <%= link_to 'Contact', '/pages/contact' , class: 'p-2 text-muted' %> 
             </nav>

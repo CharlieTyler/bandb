@@ -166,3 +166,51 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*
+ * Form 
+ */
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+
+/*
+ * Calendar 
+ */
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: #b1e29a;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .calendar-title {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 30px;
+  }
+
+  .has-events {
+    color: white;
+    background-color: #6b7794 !important;
+  }
+}
