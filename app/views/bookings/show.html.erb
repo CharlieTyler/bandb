@@ -1,0 +1,20 @@
+<p>
+  <strong>Name:</strong>
+  <%= @booking.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @booking.start_time.strftime("%d - %m - %Y") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @booking.end_time.strftime("%d - %m - %Y") %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking), class: 'btn btn-warning' %> | 
+<%= link_to 'Back', bookings_path, class: 'btn btn-secondary' %>
+<br />
+<br />
+
