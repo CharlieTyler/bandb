@@ -47,7 +47,8 @@
 
       <footer class="blog-footer">
         <% if user_signed_in? %>
-          <a class="" href='#' >Portal</a>
+          <%= link_to 'Admin Portal', pages_path, class: '' %>
+          |
           <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: '' %>
         <% else %>
           <%= link_to 'Admin', new_user_session_path, class: '' %>

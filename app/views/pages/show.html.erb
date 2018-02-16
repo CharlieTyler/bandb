@@ -1,0 +1,61 @@
+<p>
+  <strong>Title:</strong>
+  <%= @page.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <a href="/pages/<%= @page.slug %>">/pages/<%= @page.slug %></a>
+</p>
+
+<p>
+  <strong>Meta Descrition:</strong>
+  <%= @page.meta %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page.content %>
+</p>
+
+<% if @page.bullet? %>
+<p>
+  <strong>Details:</strong>
+</p>
+  <ul>
+  <% @page.detail.split(",").each do |detail| %>
+    <li><%= detail.strip %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if @page.map? %>
+<p>
+  <strong>Map:</strong>
+</p>
+
+<p>Will show map of location on page.</p>
+
+<%= render 'map', page: @page %>
+
+<% end %>
+
+<% if @page.image? %>
+<p>
+  <strong>Image:</strong>
+</p>
+
+<p>Will show image carousel on page.</p>
+
+<%= render 'image', page: @page %>
+
+<% end %>
+
+<br />
+<br />
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_page_path(@page), class: 'btn btn-warning' %> | 
+  <%= link_to 'Back', pages_path, class: 'btn btn-secondary' %>
+<% end %>
+<br />
+<br />
