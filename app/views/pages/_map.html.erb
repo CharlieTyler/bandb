@@ -1,8 +1,33 @@
-<h1>MAP</h1>
-
-<p>Will show google map location</p>
+<h3>Location</h3>
 
 <p><%= @page.address %></p>
 
-<p><%= @page.latitude %></p>
-<p><%= @page.longitude %></p>
+<style>
+  #map {
+    height: 300px;
+  }
+</style>
+
+<script>
+
+  function initMap() {
+    var myLatLng = {lat: <%= @page.latitude %>, lng: <%= @page.longitude %>};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+</script>
+
+<div id="map"></div>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhHWqqsgFaRsN8sWzc_Kt5SAdH1eEK01M&callback=initMap">
+</script>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fulham Bed and Breakfast</title>
+    <title><%= yield(:title).presence || 'Fulham Bed and Breakfast' %></title>
+    <meta name='description' content="<%= yield(:description).presence || 'Fulham bed and breakfast for a luxary stay in London' %>" />
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
