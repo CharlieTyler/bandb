@@ -1,0 +1,11 @@
+<h1>Contact us!</h1>
+
+<%= simple_form_for(@contact) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :message %>
+  <%= f.input :nickname, wrapper_html: { class: 'hidden' } %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+<% end %>
+
+<br />

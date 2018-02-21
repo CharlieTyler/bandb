@@ -82,3 +82,14 @@ gem 'jquery-ui-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'haml'
 gem 'friendly_id', '~> 5.1.0'
+
+gem 'quilljs-rails'
+
+# Syntax and Markdown
+
+gem 'pygments.rb', '~> 0.6.0'
+gem 'redcarpet', '~> 3.2.2'
+
+# Contact form
+
+gem 'mail_form'

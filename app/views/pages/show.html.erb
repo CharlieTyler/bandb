@@ -7,7 +7,7 @@
   <%= render 'image', page: @page %>
 <% end %>
 
-<p><%= @page.content %></p>
+<p><%= raw(@page.content) %></p>
 
 <% if @page.map? %>
   <%= render 'map', page: @page %>
