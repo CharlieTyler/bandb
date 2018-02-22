@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.friendly.find(params[:id])
+    @photo = Photo.new
   end
 
   def new

@@ -84,6 +84,7 @@ gem 'haml'
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'quilljs-rails'
+gem 'rails_autolink'
 
 # Contact form
 

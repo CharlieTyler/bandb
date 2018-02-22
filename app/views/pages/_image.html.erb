@@ -1,3 +1,4 @@
+<% if @page.photos.present? %>
 <div id="aboutCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -16,6 +17,24 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<% end %>
+
+<% if @page.photos.present? %>
+  <div class="row">
+  <% @page.photos.each do |photo| %>  
+  
+    <div class="col-sm-4">
+      <div class="card">
+        <%= image_tag photo.picture, class: 'card-img-top' %>
+        <div class="card-body">
+          <p class="card-text"><%= photo.caption %></p>
+        </div>
+      </div>
+    </div>
+  
+  <% end %>
+  </div>
+<% end %>
 
 <script type="text/javascript">
   $('.carousel').carousel({

@@ -6,4 +6,6 @@ class Page < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   validates :title, presence: true
+
+  has_many :photos, dependent: :destroy
 end
