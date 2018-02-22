@@ -1,43 +1,59 @@
 <% if @page.photos.present? %>
-<div id="aboutCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag 'cat.jpeg', class: 'd-block w-100', alt: 'Cat' %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag 'bed.jpeg', class: 'd-block w-100', alt: 'bed' %>
-    </div>
+  <div class="owl-carousel owl-theme">
+    <% @page.photos.each do |photo| %> 
+      <div class="">
+        <%= image_tag photo.picture, class: '', alt: photo.caption %>
+      </div>
+    <% end %>
   </div>
-  <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+
+  <% if user_signed_in? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            Photo
+          </th>
+          <th>
+            Delete
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @page.photos.each do |photo| %>
+        <tr>
+          <td>
+            <%= photo.caption %>
+          </td>
+          <td>
+            <%= link_to 'Delete', page_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 <% end %>
 
-<% if @page.photos.present? %>
-  <div class="row">
-  <% @page.photos.each do |photo| %>  
-  
-    <div class="col-sm-4">
-      <div class="card">
-        <%= image_tag photo.picture, class: 'card-img-top' %>
-        <div class="card-body">
-          <p class="card-text"><%= photo.caption %></p>
-        </div>
-      </div>
-    </div>
-  
-  <% end %>
-  </div>
-<% end %>
 
 <script type="text/javascript">
-  $('.carousel').carousel({
-  interval: 3000
-});  
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    stagePadding: 50,
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+  });
+});
 </script>

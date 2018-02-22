@@ -17,4 +17,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require quill.global
+//= require owlcarousel2/owl.carousel
 //= require_tree .

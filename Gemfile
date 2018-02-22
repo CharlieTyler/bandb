@@ -82,6 +82,7 @@ gem 'jquery-ui-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'haml'
 gem 'friendly_id', '~> 5.1.0'
+gem 'owlcarousel2'
 
 gem 'quilljs-rails'
 gem 'rails_autolink'

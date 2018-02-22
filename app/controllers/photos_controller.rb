@@ -7,6 +7,14 @@ class PhotosController < ApplicationController
     redirect_to page_path(@page)
   end
 
+  def destroy
+    @photo = Photo.find(params[:page_id])
+    @photo.destroy
+    respond_to do |format|
+      format.html { redirect_to pages_url, notice: 'Photo was successfully destroyed.' }
+    end
+  end
+
   private
 
   def photo_params
