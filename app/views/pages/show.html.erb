@@ -14,45 +14,8 @@
 <% end %>
 
 <% if user_signed_in? %>
+
   <hr>
-
-  <p>
-    <strong>Title:</strong>
-    <%= @page.title %>
-  </p>
-
-  <p>
-    <strong>Url:</strong>
-    <a href="/pages/<%= @page.slug %>">/pages/<%= @page.slug %></a>
-  </p>
-
-  <p>
-    <strong>Meta Descrition:</strong>
-    <%= @page.meta %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= @page.content %>
-  </p>
-
-  <% if @page.bullet? %>
-  <p>
-    <strong>Details:</strong>
-  </p>
-    <ul>
-    <% @page.detail.split(",").each do |detail| %>
-      <li><%= detail.strip %></li>
-    <% end %>
-    </ul>
-  <% end %>
-
-  <% if @page.image? %>
-    <p>
-      <strong>Image:</strong>
-    </p>
-    <p>Will show image carousel on page.</p>
-  <% end %>
 
   <br />
   <br />
