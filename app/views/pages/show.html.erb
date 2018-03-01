@@ -7,7 +7,7 @@
   <%= render 'image', page: @page %>
 <% end %>
 
-<%= raw(auto_link(@page.content, html: { target: '_blank' })) %>
+<%= raw(auto_link(@page.content, html: { target: '_blank' })) %> 
 
 <% if @page.map? %>
   <%= render 'map', page: @page %>

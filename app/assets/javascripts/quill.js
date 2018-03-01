@@ -10,7 +10,7 @@ var toolbarOptions = {
       }
     }
   }
-}
+} 
 
 var defaults = {
         theme: 'snow',
@@ -19,7 +19,7 @@ var defaults = {
                 [{ 'header': [1, 2, 3, false] }],
                 [{ 'color': [] }, { 'background': [] }],
                 ['bold', 'italic', 'underline', 'strike'],
-                // ['link'],
+                ['link'],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }],
                 [{ 'indent': '-1'}, { 'indent': '+1' }],
                 ['clean']                

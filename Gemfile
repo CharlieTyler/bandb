@@ -89,4 +89,4 @@ gem 'rails_autolink'
 
 # Contact form
 
-gem 'mail_form'
+gem 'mail_form' 
