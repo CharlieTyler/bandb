@@ -3,14 +3,16 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :slug %>
+    <% if page.slug != "home" %>
+      <%= f.input :slug %>
+    <% end %>
     <%= f.input :meta %>
     <%= f.input :content, input_html: { class: 'quill_container' }  %>
-    <%= f.input :detail %>
-    <%= f.input :bullet %>
-    <%= f.input :image %>
-    <%= f.input :map %>
-    <%= f.input :address %>
+    <%= f.input :detail, label: 'Details, seperate with comas ( , )' %>
+    <%= f.input :bullet, inline_label: 'Add a detail section to the page' %>
+    <%= f.input :image, inline_label: 'Images' %>
+    <%= f.input :map, inline_label: 'Add a map to the bottom of the page' %>
+    <%= f.input :address, label: 'Address to show on the map' %>
   </div>
 
   <div class="form-actions">

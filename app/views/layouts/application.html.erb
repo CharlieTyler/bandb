@@ -44,6 +44,11 @@
         <% if alert.present? %>
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
+        <% if user_signed_in? %>
+          <div class="alert alert-dark">
+            You are logged in.
+          </div>
+        <% end %>
       
         <%= yield %>
 

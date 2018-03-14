@@ -14,39 +14,13 @@
 <% end %>
 
 <% if user_signed_in? %>
-
-  <hr>
-
-  <br />
-  <br />
-  <%= link_to 'Add Photos', '#PhotoModal', 'data-toggle' => 'modal', class: 'btn btn-info' %> | 
-  <%= link_to 'Edit', edit_page_path(@page), class: 'btn btn-warning' %> | 
-  <%= link_to 'Back', pages_path, class: 'btn btn-secondary' %>
+  <div class="alert alert-dark">
+    
+    <%= link_to 'Edit', edit_page_path(@page), class: 'btn btn-warning' %>
+    <%= link_to 'Back', pages_path, class: 'btn btn-secondary' %>
+  </div>
 <% end %>
 
 <br />
 <br />
 
-<!-- PhotoModal -->
-<div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a Photo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%= simple_form_for @photo, url: page_photos_path(@page) do |f| %>
-        <div class="modal-body">
-          <%= f.input :picture %>
-          <%= f.input :caption %>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <%= f.submit "Add Photo", class: 'btn btn-info' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>

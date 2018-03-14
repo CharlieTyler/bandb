@@ -36,7 +36,9 @@
         <%= link_to 'Edit', edit_page_path(page), class: 'btn btn-warning' %>
       </td>
       <td>
-        <%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <% if page.slug != "home" %>
+          <%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        <% end %>
       </td>
     </tr>
     <% end %>

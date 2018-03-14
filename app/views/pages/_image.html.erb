@@ -8,32 +8,60 @@
   </div>
 
   <% if user_signed_in? %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>
-            Photo
-          </th>
-          <th>
-            Delete
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @page.photos.each do |photo| %>
-        <tr>
-          <td>
-            <%= photo.caption %>
-          </td>
-          <td>
-            <%= link_to 'Delete', page_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <br />
+    <div class="alert alert-dark">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              Photo
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @page.photos.each do |photo| %>
+          <tr>
+            <td>
+              <%= photo.caption %>
+            </td>
+            <td>
+              <%= link_to 'Delete', page_photo_path(photo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Add Photos', '#PhotoModal', 'data-toggle' => 'modal', class: 'btn btn-info' %>
+    </div>
   <% end %>
 <% end %>
+
+<!-- PhotoModal -->
+<div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a Photo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for @photo, url: page_photos_path(@page) do |f| %>
+        <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "Add Photo", class: 'btn btn-info' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">
